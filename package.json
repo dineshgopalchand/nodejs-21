@@ -1,0 +1,20 @@
+{
+    "name": "nodejs-21",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "node server.js",
+        "dev-start": " nodemon server.js"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "nodemon": "^2.0.12"
+    },
+    "dependencies": {
+        "http": "0.0.1-security",
+        "path": "^0.12.7"
+    }
+}
