@@ -9,7 +9,6 @@ http.createServer(function(request, response) {
     // console.log(request);
     // response.writeHead(200, { 'Content-Type': 'text/plain' });
     response.writeHead(200, { 'Content-Type': 'application/json' });
-
     // Send the response body as "Hello World"
     console.log(showLog());
     // response.end('Hello World\n');
