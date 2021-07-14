@@ -24,10 +24,10 @@ require('./__helper/function');
 // });
 
 ev.on('customeeve', function(e) {
-    console.log('from custom event');
+    console.log('from custom event', e);
 });
 
-ev.emit('customeeve');
+ev.emit('customeeve', { message: 'some meessage' });
 ev.emit('customeev');
 ev.emit('customeevent');
 ev.emit('showlog');
