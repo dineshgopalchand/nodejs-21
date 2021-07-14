@@ -14,6 +14,7 @@
         "nodemon": "^2.0.12"
     },
     "dependencies": {
+        "events": "^3.3.0",
         "express": "^4.17.1",
         "fs": "0.0.1-security",
         "http": "0.0.1-security",
