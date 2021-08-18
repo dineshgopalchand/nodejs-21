@@ -4,12 +4,14 @@ const port = 8081;
 const express = require('express');
 const app = express();
 var cors = require('cors')
+var pageRouter = require('./router/pages.js');
+var apiRouter = require('./router/api.js');
 app.use(cors())
     // const app = require('express')();
     // const app= express();
 
 const beforeLoad = (req, res, next) => {
-    console.log('before Load');
+    console.log('before Load- Middleware');
     // next();
     const notValidCondition = 0;
     if (notValidCondition) {
@@ -20,14 +22,8 @@ const beforeLoad = (req, res, next) => {
 }
 app.use(beforeLoad);
 
-app.get('/', function(req, res) {
-    res.send('Hello World');
-});
-app.get('/contact', beforeLoad, function(req, res) {
-    // return res.send('contact page');
-    return res.send('<h1>Contact page</h1><p>this is contact page</p>')
-});
-
+app.use('/', pageRouter);
+app.use('/api', apiRouter);
 
 app.get('**', (req, res) => {
     res.status(404);
