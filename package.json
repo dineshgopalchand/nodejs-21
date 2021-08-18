@@ -5,7 +5,7 @@
     "main": "app.js",
     "scripts": {
         "start": "node app.js",
-        "dev-start": " nodemon app.js"
+        "start:dev": "nodemon app.js"
     },
     "keywords": [],
     "author": "",
@@ -14,6 +14,7 @@
         "nodemon": "^2.0.12"
     },
     "dependencies": {
+        "cors": "^2.8.5",
         "events": "^3.3.0",
         "express": "^4.17.1",
         "fs": "0.0.1-security",
