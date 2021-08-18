@@ -14,7 +14,7 @@ for (var i = 1; i < maxStar / 2; i++) {
     for (var s = maxStar / 2 - i - 1; s > 0; s--) {
         pattern += ' ';
     }
-    for (var j = maxStar - 2 * i; j < maxStar; j++) {
+    for (var j = maxStar - 2 * i - 1; j < maxStar; j++) {
         pattern += '*';
     }
     pattern += '\n';
