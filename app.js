@@ -4,8 +4,9 @@ const port = 8081;
 const express = require('express');
 const app = express();
 var cors = require('cors')
-var pageRouter = require('./router/pages.js');
-var apiRouter = require('./router/api.js');
+    // var pageRouter = require('./router/pages.js');
+    // var apiRouter = require('./router/api.js');
+const { pageRouter, apiRouter } = require('./router')
 app.use(cors())
     // const app = require('express')();
     // const app= express();
