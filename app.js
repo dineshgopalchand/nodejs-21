@@ -1,33 +1,29 @@
 const http = require("http");
-const { showLog } = require('./test');
+
 const port = 8081;
+const express = require('express');
+const app = express();
+// const app = require('express')();
+// const app= express();
 
-const server = http.createServer(function(req, res) {
-    const url = req.url;
-    const headers = req.headers;
-    console.log(headers);
-    // Send the HTTP header 
-    // HTTP Status: 200 : OK
-    // Content Type: text/plain
-    // console.log(request);
-    // response.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    // Send the response body as "Hello World"
-    console.log(showLog());
-    // response.end('Hello World\n');
-    if (url == '/') {
-        res.end(JSON.stringify({ 'message': 'home page' }));
-    } else
-    if (url == '/contact') {
-        res.end(JSON.stringify({ 'message': 'contact page' }));
-    }
-
-
+app.get('/', function(req, res) {
+    res.send('Hello World')
 });
-server.listen(port, () => {
-    // Console will print the message
-    console.log(`Server running at http://127.0.0.1:${port}/`);
-});
+// app.post('/', function(req, res) {
+//     console.log(req);
+//     // res.send('post method');
+//     res.send({ message: 'post method' });
+// })
+app.post('/', (req, res) => {
+    console.log(req);
+    // res.send('post method');
+    res.send({ message: 'post method' });
+})
+
+app.listen(port, () => {
+    console.log(` server started at http://127.0.0.1:${port}`);
+})
+
 
 // // Console will print the message
 // console.log('Server running at http://127.0.0.1:8081/');

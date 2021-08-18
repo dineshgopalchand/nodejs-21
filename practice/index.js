@@ -12,7 +12,8 @@ require('./__helper/function');
 
 // synchronus method to read file
 // fs.appendFileSync('test.html', 'asdfasdf');
-// const content = fs.readFileSync('./test.html');
+const content = fs.readFileSync('./test.html');
+console.log(content);
 // console.log(content.toString());
 
 // // asynchronus method to read file
