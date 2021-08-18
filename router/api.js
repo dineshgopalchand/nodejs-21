@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const verifyToken = require('../auth/verifyToken');
 
-// router.use()
+router.use(verifyToken);
 router.get('/user-list', (req, res) => {
     res.send({
         response: [{
