@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const verifyToken = require('../auth/verifyToken');
 const usersData = require('../data/users');
+const { v4: uuidv4 } = require('uuid');
+
 
 router.use(verifyToken);
 router.get('/user-list', (req, res) => {
@@ -21,6 +23,19 @@ router.get('/user/:id/:name', (req, res) => {
     return res.send({
         response: userData
     })
+});
+
+router.post('/user/create', (req, res) => {
+    const userData = req.body;
+    // console.log(userData);
+    userData.id = uuidv4();
+
+    return res.send({
+        response: {
+            message: 'success',
+            data: userData
+        }
+    });
 });
 router.get('/article/1/how-to-read-fast', (req, res) => {
     const userName = 'dinesh';

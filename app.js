@@ -4,13 +4,20 @@ const port = 8081;
 const express = require('express');
 const app = express();
 var cors = require('cors')
-    // var pageRouter = require('./router/pages.js');
-    // var apiRouter = require('./router/api.js');
-const { pageRouter, apiRouter } = require('./router')
-app.use(cors())
-    // const app = require('express')();
-    // const app= express();
+var morgan = require('morgan');
+app.use(morgan(':method :url :remote-addr - :remote-user [:date[clf]] " HTTP/:http-version"  ":referrer" ":user-agent" -- :status :res[content-length] - :response-time ms '));
+// var pageRouter = require('./router/pages.js');
+// var apiRouter = require('./router/api.js');
+const { pageRouter, apiRouter } = require('./router');
+app.use(cors());
 
+// Parse URL-encoded bodies (as sent by HTML forms)
+app.use(express.urlencoded());
+
+// Parse JSON bodies (as sent by API clients)
+app.use(express.json());
+
+// middleware introduction
 const beforeLoad = (req, res, next) => {
     console.log('before Load- Middleware');
     // next();
