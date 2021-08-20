@@ -29,7 +29,7 @@ const beforeLoad = (req, res, next) => {
     // res.send('form before load');
 }
 app.use(beforeLoad);
-
+app.use(express.static('public/html'));
 app.use('/', pageRouter);
 app.use('/api', apiRouter);
 
