@@ -17,6 +17,12 @@ app.use(express.urlencoded());
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 
+
+// setting up template engin
+
+app.set('view engine', 'pug');
+app.set('views', './views');
+
 // middleware introduction
 const beforeLoad = (req, res, next) => {
     console.log('before Load- Middleware');
@@ -30,6 +36,9 @@ const beforeLoad = (req, res, next) => {
 }
 app.use(beforeLoad);
 app.use(express.static('public/html'));
+// app.get('/contact', function(req, res) {
+//     return res.render('contact');
+// });
 app.use('/', pageRouter);
 app.use('/api', apiRouter);
 

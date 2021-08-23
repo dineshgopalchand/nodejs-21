@@ -11,7 +11,14 @@ const path = require('path');
 // router.get('/contact', beforeLoad, function(req, res) {
 router.get('/contact', function(req, res) {
     // return res.send('contact page');
-    return res.send('<h1>Contact page</h1><p>this is contact page</p>')
+    // const description = 'asdfadsfd';
+    // return res.send('<h1>Contact page</h1><p>' + description + '</p>')
+    return res.render('contact', {
+        title: "Contact page | Nodejs",
+        keyword: "contact page, nodejs practice",
+        heading: 'Contact page',
+        description: 'some description'
+    });
 });
 
 module.exports = router;
