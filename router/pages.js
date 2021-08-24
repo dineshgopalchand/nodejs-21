@@ -20,5 +20,14 @@ router.get('/contact', function(req, res) {
         description: 'some description'
     });
 });
+router.post('/contact', (req, res) => {
+    return res.render('contact', {
+        title: "Contact page | Nodejs",
+        keyword: "contact page, nodejs practice",
+        heading: 'Contact page',
+        description: 'some description',
+        formdata: req.body
+    });
+});
 
 module.exports = router;

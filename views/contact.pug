@@ -7,3 +7,24 @@ html
    body
       h2.header=heading
       p.greetings#people=description
+      form( method = "POST")
+         div
+            label(for = "name") Name:
+            input(name = "name" )
+         br
+         div
+            label(for = "subject") Subject:
+            input(name = "subject" )
+         br
+         div
+            label(for = "desc") Details:
+            textarea(name = "desc" )
+         br
+         button(type = "submit") Submit
+      
+      div#userData
+         if formdata
+            p Submitted Details
+            p Name #{formdata.name}
+            p Subject #{formdata.subject}
+            div Details #{formdata.desc}
