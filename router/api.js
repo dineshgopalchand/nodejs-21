@@ -25,18 +25,18 @@ router.get('/user/:id/:name', (req, res) => {
     })
 });
 
-router.post('/user/create', (req, res) => {
-    const userData = req.body;
-    // console.log(userData);
-    userData.id = uuidv4();
+// router.post('/user/create', (req, res) => {
+//     const userData = req.body;
+//     // console.log(userData);
+//     userData.id = uuidv4();
 
-    return res.send({
-        response: {
-            message: 'success',
-            data: userData
-        }
-    });
-});
+//     return res.send({
+//         response: {
+//             message: 'success',
+//             data: userData
+//         }
+//     });
+// });
 router.get('/article/1/how-to-read-fast', (req, res) => {
     const userName = 'dinesh';
     const userData = usersData.filter(item => item.name == userName);
@@ -44,5 +44,11 @@ router.get('/article/1/how-to-read-fast', (req, res) => {
         response: userData
     })
 });
+
+router.post('/user/register', (req, res) => {
+    console.log(req.body);
+    const data = res.body;
+    res.send(data);
+})
 
 module.exports = router;
